@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 8"
-date: "`r Sys.Date()`"
+date: "2025-11-14"
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "

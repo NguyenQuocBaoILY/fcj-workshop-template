@@ -1,6 +1,6 @@
 ---
 title : "Introduction"
-date :  "`r Sys.Date()`" 
+date :  "2025-11-14" 
 weight : 1 
 chapter : false
 pre : " <b> 5.1. </b> "

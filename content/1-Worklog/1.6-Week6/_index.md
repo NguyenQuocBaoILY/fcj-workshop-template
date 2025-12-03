@@ -1,57 +1,29 @@
 ---
 title: "Week 6 Worklog"
-date: "`r Sys.Date()`"
+date: "2025-11-14"
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn core AWS security and access-management concepts using KMS and IAM roles.  
+* Understand basic database and data-analytics workflows with RDS, Glue, Athena, and QuickSight.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Learn How to Encrypt at rest with AWS KMS - **Practice:** <br>&emsp; + create policy, role, group and user <br>&emsp; + Create Key Management Service <br>&emsp; + Create Amazon S3 <br>&emsp; + Create AWS CloudTrail and Amazon Athena - **Practice:** <br>&emsp; Test and share encrypted data on S3 | 10/13/2025 | 10/13/2025      | <https://000033.awsstudygroup.com/> | 
+| 3   | - Granting authorization for an application to access AWS services with an IAM role. - **Practice:** <br>&emsp; + Use access key <br>&emsp; + Create IAM role <br>&emsp; +  using an IAM role assigned to an EC2 instance | 10/14/2025 | 10/14/2025      | <https://000048.awsstudygroup.com/> |
+| 4   | - Learn about Amazon Relational Database Service (Amazon RDS) <br> - **Practice:** <br>&emsp; + set up the necessary network infrastructure and security components to ensure proper connectivity and security for our database environment. <br>&emsp; + Create EC2 instance <br>&emsp; + Create RDS database instance <br>&emsp; + Application Deployment <br>&emsp; + Backup and Restore | 10/15/2025 | 10/15/2025      | <https://000005.awsstudygroup.com/> |
+| 5   | Understanding the data lake and how to use it - **Practice:** <br>&emsp; + Create an IAM role for AWS Glue. <br>&emsp; + Create S3 Bucket <br>&emsp; + Creating a Delivery Stream <br>&emsp; + Create Sample Data | 10/16/2025 | 10/16/2025      | <https://000035.awsstudygroup.com/> |
+| 6   | - **Practice:** <br>&emsp; + Create Data Catalog <br>&emsp; + Create SageMaker Notebook <br>&emsp; + Amazon Athena Overview <br>&emsp; + Visualize with QuickSight| 10/17/2025 | 10/17/2025      | <https://000035.awsstudygroup.com/> |
 
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Learned how to encrypt data at rest using AWS KMS and reviewed CloudTrail logs.
+* Granted application access to AWS services by using IAM roles on EC2 instances.
+* Set up and managed an Amazon RDS database, including backup and restore.
+* Practiced data lake workflows using AWS Glue, S3, Firehose, Athena, SageMaker Notebook, and QuickSight.

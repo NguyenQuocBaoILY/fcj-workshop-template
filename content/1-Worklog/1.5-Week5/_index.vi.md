@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 5"
-date: "`r Sys.Date()`"
+date: "2025-11-14"
 weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu Tuần 5:
+
+* Tìm hiểu về Security Hub, tối ưu chi phí bằng Lambda và quản lý tài nguyên bằng Tags và Resource Groups.  
+* Hiểu kiểm soát truy cập EC2 dựa trên Tag và khái niệm IAM Permission Boundaries.
+
+### Các nhiệm vụ cần thực hiện trong tuần:
+| Thứ | Công việc   | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Tìm hiểu về AWS Security Hub <br> - **Thực hành:** <br>&emsp; + Bật Security Hub  <br>&emsp; + Xem điểm đánh giá theo từng bộ tiêu chí | 06/10/2025 | 06/10/2025      | https://000018.awsstudygroup.com/ |
+| 3   | - Hiểu cách Lambda hỗ trợ tối ưu chi phí trong môi trường AWS <br> - **Thực hành:** <br>&emsp; + Tạo Tag cho Instance  <br>&emsp; + Tạo Role cho Lambda  <br>&emsp; + Tạo Lambda Function  <br>&emsp; + Kiểm tra kết quả | 07/10/2025 | 07/10/2025      | https://000022.awsstudygroup.com/ |
+| 4   | - Tìm hiểu cách quản lý tài nguyên bằng Tags và Resource Groups <br> - **Thực hành:** <br>&emsp; + Tạo EC2 Instance kèm tag <br>&emsp; + Quản lý Tags trên tài nguyên AWS <br>&emsp; + Lọc tài nguyên theo tag <br>&emsp; + Sử dụng tags bằng CLI <br>&emsp; + Tạo Resource Group | 08/10/2025 | 08/10/2025      | https://000027.awsstudygroup.com/ |
+| 5   | - Quản lý truy cập EC2 bằng resource tags thông qua IAM <br> - **Thực hành:** <br>&emsp; + Tạo IAM User <br>&emsp; + Tạo IAM Policy <br>&emsp; + Tạo IAM Role <br>&emsp; + Kiểm tra Policy <br>&emsp; + Switch Role <br>&emsp; + Kiểm tra lại IAM Policy | 09/10/2025 | 09/10/2025      | https://000028.awsstudygroup.com/ |
+| 6   | - Tìm hiểu về IAM Permission Boundary <br> - **Thực hành:** <br>&emsp; + Tạo Limit Policy <br>&emsp; + Tạo IAM User bị giới hạn quyền <br>&emsp; + Kiểm tra giới hạn quyền của IAM User | 10/10/2025 | 10/10/2025      | https://000030.awsstudygroup.com/ |
 
 
-### Mục tiêu tuần 5:
+### Thành tựu đạt được trong Tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
-
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Kết quả đạt được tuần 5:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Biết cách sử dụng AWS Security Hub để giám sát và đánh giá mức độ bảo mật.
+* Hiểu cách Lambda tự động hóa các tác vụ tối ưu chi phí.
+* Biết cách quản lý tài nguyên AWS bằng Tags và Resource Groups.
+* Áp dụng kiểm soát truy cập EC2 bằng resource tags thông qua IAM Policy.
+* Hiểu và áp dụng được IAM Permission Boundaries trong quản lý quyền hạn.

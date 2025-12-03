@@ -1,59 +1,35 @@
 ---
 title: "Worklog Tuần 2"
-date: "`r Sys.Date()`"
+date: "2025-11-14"
 weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu Tuần 2:
+
+* Hiểu các kiến thức cơ bản về AWS Virtual Private Cloud 
+* Tìm hiểu về bảo mật VPC và các tính năng Multi-VPC
+* Hiểu các kiến thức cơ bản về VPC, DirectConnect, Load Balancer và các tài nguyên bổ sung khác
+
+### Các nhiệm vụ cần thực hiện trong tuần:
+| Thứ | Công việc                                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Học các kiến thức liên quan đến Virtual Private Cloud <br> - Tường lửa trong VPC <br> - **Thực hành:** <br>&emsp; + Tạo VPC, Subnet, Internet Gateway <br>&emsp; + Tạo Route Table, Security Group <br>&emsp; + Bật VPC Flow Logs <br> - Triển khai Amazon EC2 Instances                                                                                        | 15/09/2025 | 15/09/2025      | <https://000003.awsstudygroup.com/1-introduce/> |
+| 3   | - Thiết lập Hybrid DNS với Route 53 Resolver <br> - **Thực hành:** <br>&emsp; + Tạo Key Pair <br>&emsp; + Khởi tạo CloudFormation Template <br>&emsp; + Cấu hình Security Group <br>&emsp; + Kết nối tới RDGW                                              | 16/09/2025 | 16/09/2025      | <https://000010.awsstudygroup.com/3-connecttordgw/> |
+| 4   | - Tìm hiểu về VPC Peering và cách thiết lập <br> - **Thực hành:** <br>&emsp; + Khởi tạo CloudFormation Template <br>&emsp; + Tạo Security Group <br> &emsp; + Tạo EC2 Instance <br> &emsp; + Cập nhật Network ACL <br> &emsp; + Cấu hình Route Tables để bật giao tiếp giữa các VPC đã peering <br> &emsp; + Bật và kiểm tra Cross-Peer DNS | 17/09/2025 | 17/09/2025      | <https://000019.awsstudygroup.com/6-crosspeerdns/> |
+| 5   | - Tìm hiểu kiến thức cơ bản về AWS Transit Gateway <br>  - **Thực hành:** <br>&emsp; + Tạo Transit Gateway <br>&emsp; + Tạo Transit Gateway Attachments <br>&emsp; + Tạo Transit Gateway Route Tables <br>&emsp; + Thêm Transit Gateway Routes vào VPC Route Tables                           | 18/08/2025 | 18/08/2025      | <https://000020.awsstudygroup.com/2-prerequiste/> |
+| 6   | - Tổng hợp kiến thức về nền tảng Networking (VPC, Subnets, Gateways, Routing) <br> - Làm lại một số bài tập về VPC Peering và kết nối các VPC thông qua Transit Gateway                                                                                     | 19/08/2025 | 19/08/2025      |  |
 
 
-### Mục tiêu tuần 2:
+### Kết quả đạt được trong Tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
-
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Kết quả đạt được tuần 2:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Nắm vững nền tảng VPC:** Tạo và cấu hình thành công các thành phần cốt lõi của Virtual Private Cloud (VPC):  
+    * Subnets, Internet Gateway, Route Tables và Security Groups.
+* **Triển khai & Giám sát cơ bản:** Có kinh nghiệm thực tế trong việc triển khai **Amazon EC2 Instances** trong môi trường VPC tự tạo.
+* **Bảo mật & Giám sát mạng:** Áp dụng các nguyên tắc bảo mật bằng cách cấu hình **Firewall (Security Groups và Network ACLs)** và bật thành công **VPC Flow Logs** để giám sát lưu lượng.
+* **Kết nối Multi-VPC:** Thành thạo việc thiết lập và kiểm tra kết nối trong các mô hình mạng phức tạp:  
+    * **VPC Peering:** Cấu hình Route Tables và kiểm thử **Cross-Peer DNS** giữa các VPC.  
+    * **Transit Gateway (TGW):** Tìm hiểu và triển khai TGW, quản lý attachments và route tables để kết nối nhiều VPC ở quy mô lớn.
+* **Hybrid DNS & Truy cập:** Thực hành xây dựng **Hybrid DNS** sử dụng **Route 53 Resolver** và cấu hình các phương thức truy cập an toàn (tạo Key Pair, truy cập RDGW) thông qua CloudFormation.
+* **Tổng hợp kiến thức:** Hệ thống hóa toàn bộ kiến thức Networking trong tuần thông qua các bài tập tích hợp về định tuyến và bảo mật trong hệ thống Multi-VPC.

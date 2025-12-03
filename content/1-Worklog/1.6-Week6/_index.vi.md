@@ -1,58 +1,29 @@
 ---
 title: "Worklog Tuần 6"
-date: "`r Sys.Date()`"
+date: "2025-11-14"
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu Tuần 6:
+
+* Tìm hiểu các khái niệm cốt lõi về bảo mật và quản lý truy cập trên AWS thông qua KMS và IAM Roles.  
+* Hiểu quy trình cơ bản về cơ sở dữ liệu và phân tích dữ liệu với RDS, Glue, Athena và QuickSight.
+
+### Các nhiệm vụ cần thực hiện trong tuần:
+| Thứ | Công việc                                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Tìm hiểu cách mã hóa dữ liệu khi lưu trữ (Encrypt at rest) bằng AWS KMS <br> - **Thực hành:** <br>&emsp; + Tạo policy, role, group và user <br>&emsp; + Tạo Key Management Service <br>&emsp; + Tạo Amazon S3 <br>&emsp; + Tạo AWS CloudTrail và Amazon Athena <br> - **Thực hành:** <br>&emsp; + Kiểm tra và chia sẻ dữ liệu được mã hóa trên S3 | 13/10/2025 | 13/10/2025      | https://000033.awsstudygroup.com/ |
+| 3   | - Cấp quyền cho ứng dụng truy cập dịch vụ AWS bằng IAM Role <br> - **Thực hành:** <br>&emsp; + Sử dụng Access Key <br>&emsp; + Tạo IAM Role <br>&emsp; + Gán IAM Role cho EC2 Instance và kiểm tra hoạt động | 14/10/2025 | 14/10/2025      | https://000048.awsstudygroup.com/ |
+| 4   | - Tìm hiểu về Amazon Relational Database Service (Amazon RDS) <br> - **Thực hành:** <br>&emsp; + Thiết lập hạ tầng mạng và các thành phần bảo mật cần thiết cho môi trường database <br>&emsp; + Tạo EC2 Instance <br>&emsp; + Tạo RDS Database Instance <br>&emsp; + Triển khai ứng dụng <br>&emsp; + Sao lưu và khôi phục | 15/10/2025 | 15/10/2025      | https://000005.awsstudygroup.com/ |
+| 5   | - Tìm hiểu mô hình Data Lake và cách sử dụng <br> - **Thực hành:** <br>&emsp; + Tạo IAM Role cho AWS Glue <br>&emsp; + Tạo S3 Bucket <br>&emsp; + Tạo Delivery Stream <br>&emsp; + Tạo dữ liệu mẫu | 16/10/2025 | 16/10/2025      | https://000035.awsstudygroup.com/ |
+| 6   | - **Thực hành:** <br>&emsp; + Tạo Data Catalog <br>&emsp; + Tạo SageMaker Notebook <br>&emsp; + Tổng quan Amazon Athena <br>&emsp; + Trực quan hóa dữ liệu bằng QuickSight | 17/10/2025 | 17/10/2025      | https://000035.awsstudygroup.com/ |
 
 
-### Mục tiêu tuần 6:
+### Thành tựu đạt được trong Tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
-
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nắm được cách mã hóa dữ liệu khi lưu trữ bằng AWS KMS và kiểm tra nhật ký CloudTrail.
+* Cấp quyền cho ứng dụng truy cập dịch vụ AWS thông qua IAM Role gán cho EC2.
+* Thiết lập và quản lý cơ sở dữ liệu Amazon RDS, bao gồm sao lưu và khôi phục.
+* Thực hành quy trình Data Lake với AWS Glue, S3, Firehose, Athena, SageMaker Notebook và QuickSight.

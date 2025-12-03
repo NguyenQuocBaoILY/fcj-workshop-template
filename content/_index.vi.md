@@ -1,19 +1,19 @@
 ---
 title: "Báo cáo thực tập"
-date: "`r Sys.Date()`"
+date: "2025-11-14"
 weight: 1
 chapter: false
 ---
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Văn A
+&emsp; **Họ và tên:** Nguyễn Quốc Bảo
 
-&emsp; **Số điện thoại:** 0989888999
+&emsp; **Số điện thoại:** 0908439694
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** Baonqse183321@fpt.edu.vn
 
-&emsp; **Trường:** Đại học Sư phạm Kỹ thuật TP.HCM
+&emsp; **Trường:** Đại học FPT
 
 &emsp; **Ngành:** Công nghệ thông tin
 
@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 12/08/2025 đến ngày 12/11/2025
 
-![Ảnh đại diện của bạn](/images/avatar.png)
+![Ảnh đại diện của bạn](/images/Avatar.jpg)
 
 
 

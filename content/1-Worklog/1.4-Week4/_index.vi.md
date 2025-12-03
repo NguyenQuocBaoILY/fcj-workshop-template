@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 4"
-date: "`r Sys.Date()`"
+date: "2025-11-14"
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu Tuần 4:
+
+* Học về VM Import/Export và các dịch vụ lưu trữ liên quan.
+* Thực hành quản lý tài nguyên AWS bằng Console và CLI.
+
+### Các nhiệm vụ cần thực hiện trong tuần:
+| Thứ | Công việc                                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Tìm hiểu về VM Import/Export <br> - **Thực hành:** <br>&emsp; + Xuất máy ảo từ On-premises <br>&emsp; + Tải máy ảo lên AWS <br>&emsp; + Nhập máy ảo vào AWS <br>&emsp; + Triển khai EC2 Instance từ AMI                                                                                                    | 29/09/2025 | 29/09/2025 | <https://000014.awsstudygroup.com/> |
+| 3   | - Xuất instance từ AWS <br> - **Thực hành:** <br>&emsp; + Thiết lập ACL cho S3 Bucket <br>&emsp; + Xuất máy ảo từ Instance <br>&emsp; + Xuất máy ảo từ AMI                                             | 30/09/2025 | 30/09/2025      | <https://000014.awsstudygroup.com/> |
+| 4   | - Tìm hiểu về Amazon FSx for Windows File Server <br> - **Thực hành:** <br>&emsp; + Tạo môi trường <br>&emsp; + Tạo hệ thống file SSD Multi-AZ <br>&emsp; + Tạo hệ thống file HDD Multi-AZ <br>&emsp; + Tạo file shares mới <br>&emsp; + Kiểm tra hiệu năng | 01/10/2025 | 01/10/2025      | <https://000025.awsstudygroup.com/> |
+| 5   | - **Thực hành:** <br>&emsp; + Giám sát hiệu năng <br>&emsp; + Bật tính năng data deduplication <br>&emsp; + Bật shadow copies <br>&emsp; + Quản lý phiên người dùng và các file đang mở | 02/10/2025 | 02/10/2025      | <https://000025.awsstudygroup.com/> |
+| 6   | - **Thực hành:** <br>&emsp; + Bật user storage quotas <br>&emsp; + Bật Continuous Access share <br>&emsp; + Mở rộng throughput capacity <br>&emsp; + Mở rộng dung lượng lưu trữ <br>&emsp; + Xóa môi trường sau khi hoàn thành  | 03/10/2025 | 03/10/2025      | <https://000025.awsstudygroup.com/> |
 
 
-### Mục tiêu tuần 4:
+### Thành tựu đạt được trong Tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
-
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu và thực hành quy trình VM Import/Export.
+* Xuất và nhập máy ảo thành công thông qua S3 và AMI.
+* Làm việc với Amazon FSx for Windows File Server và tạo được hệ thống file SSD/HDD Multi-AZ.
+* Thực hành chia sẻ file, kiểm tra hiệu năng và sử dụng các tính năng quản lý của FSx.
+* Hoàn thành các tác vụ mở rộng tài nguyên và dọn dẹp toàn bộ*
