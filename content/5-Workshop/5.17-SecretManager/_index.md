@@ -86,7 +86,7 @@ Use **AWS Secrets Manager** to store configuration/secrets for the **TaskHub** s
    - **Time unit**: `Hours`
    - **Hours**: `23`
    - (Optional) **Window duration**: `4h`
-   - Keep **Rotate immediately when the secret is stored** checked
+   - Keep **Rotate immediately when the secret is stored** checked a
 3. In **Rotation function**:
    - Select the Lambda function: **`taskhub-backend`**
 4. Click **Next**.
