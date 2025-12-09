@@ -17,13 +17,13 @@ Trước khi hoàn tất CloudFront, phải đảm bảo S3 Bucket **`taskhub-fr
 ### 1.1. Static Website Hosting Status
 * **Kiểm tra:** Tab **Properties** của S3 Bucket.
 * **Trạng thái:** **S3 static website hosting** phải ở trạng thái **Disabled**.
-![anh1](/images/5-workshop/5.7-CloudFront/image1.png)
+![anh1](/images/5-Workshop/5.7-CloudFront/image1.png)
 * **Giải thích:** CloudFront là CDN, không cần S3 tự phân phát nội dung.
 
 ### 1.2. Block Public Access & Bucket Policy
 * **Kiểm tra:** Tab **Permissions** của S3 Bucket.
 * **Block public access (bucket settings):** Phải ở trạng thái **On** (`Block all public access`).
-![anh2](/images/5-workshop/5.7-CloudFront/image2.png)
+![anh2](/images/5-Workshop/5.7-CloudFront/image2.png)
 * **Bucket policy (Xác nhận cuối cùng):** Phải chứa Policy OAC đã được **CloudFront tự động cập nhật**.
 
 ---
@@ -32,9 +32,9 @@ Trước khi hoàn tất CloudFront, phải đảm bảo S3 Bucket **`taskhub-fr
 
 ### 2.1. Step 1 & 2: Get started
 
-![anh4](/images/5-workshop/5.7-CloudFront/image4.png)
-![anh5](/images/5-workshop/5.7-CloudFront/image5.png)
-![anh6](/images/5-workshop/5.7-CloudFront/image6.png)
+![anh4](/images/5-Workshop/5.7-CloudFront/image4.png)
+![anh5](/images/5-Workshop/5.7-CloudFront/image5.png)
+![anh6](/images/5-Workshop/5.7-CloudFront/image6.png)
 
 
 | Cấu Hình | Giá Trị | Giải Thích |
@@ -48,21 +48,21 @@ Trước khi hoàn tất CloudFront, phải đảm bảo S3 Bucket **`taskhub-fr
 
 #### 1. Chỉ định Origin
 * **Origin type:** Chọn **Amazon S3**.
-![anh7](/images/5-workshop/5.7-CloudFront/image7.png)
+![anh7](/images/5-Workshop/5.7-CloudFront/image7.png)
 * **S3 origin:** Chọn S3 Bucket **`taskhub-frontend-prod`**.
-![anh8](/images/5-workshop/5.7-CloudFront/image8.png)
+![anh8](/images/5-Workshop/5.7-CloudFront/image8.png)
 
 #### 2. Thiết lập OAC (Bảo mật Tự động)
-1.  Tick **"Allow private S3 bucket access to CloudFront - Recommended"**.
-2.  Chọn **Use recommended origin settings**.
-    * **Giải thích:** Khi hoàn tất tạo Distribution, CloudFront sẽ tự động cập nhật Bucket Policy để cấp quyền truy cập bằng OAC.
+1.  Tick **"Allow private S3 bucket access to CloudFront - Recommended"**.
+2.  Chọn **Use recommended origin settings**.
+    * **Giải thích:** Khi hoàn tất tạo Distribution, CloudFront sẽ tự động cập nhật Bucket Policy để cấp quyền truy cập bằng OAC.
 
 #### 3. Cấu hình Cache
 * **Cache settings:** Chọn **Use recommended cache settings tailored to serving S3 content**.
 
 ### 2.3. Step 4 & 5: Security & TLS
 
-![anh9](/images/5-workshop/5.7-CloudFront/image9.png)
+![anh9](/images/5-Workshop/5.7-CloudFront/image9.png)
 
 | Cấu Hình | Giá Trị Áp Dụng | Giải Thích |
 | :--- | :--- | :--- |
@@ -80,7 +80,7 @@ Trước khi hoàn tất CloudFront, phải đảm bảo S3 Bucket **`taskhub-fr
 * **Price Class:** Chọn **Use all edge locations (best performance)**.
 * Click nút **"Create distribution"** để triển khai.
 
-![anh10](/images/5-workshop/5.7-CloudFront/image10.png)
+![anh10](/images/5-Workshop/5.7-CloudFront/image10.png)
 
 ---
 
@@ -91,6 +91,6 @@ Sau khi Distribution chuyển sang trạng thái **`Deploying`**, bạn thực h
 1.  **Truy cập S3 Bucket** `taskhub-frontend-prod`.
 2.  Vào tab **"Permissions"**.
 3.  Tìm mục **"Bucket policy"**.
-4.  **Xác nhận:** Policy phải được cập nhật tự động và chứa đoạn JSON ủy quyền cho dịch vụ CloudFront. Điều này chứng tỏ OAC đã khóa truy cập trực tiếp và chỉ cho phép CloudFront đọc tệp.
+4.  **Xác nhận:** Policy phải được cập nhật tự động và chứa đoạn JSON ủy quyền cho dịch vụ CloudFront. Điều này chứng tỏ OAC đã khóa truy cập trực tiếp và chỉ cho phép CloudFront đọc tệp .
 
-![anh3](/images/5-workshop/5.7-CloudFront/image3.png)
+![anh3](/images/5-Workshop/5.7-CloudFront/image3.png)

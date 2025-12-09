@@ -18,11 +18,11 @@ Bucket này đóng vai trò là **Origin** cho CloudFront, chứa code Frontend 
 1. Đăng nhập vào AWS Console, tìm và chọn dịch vụ **Amazon S3**.
 2. Click nút **"Create bucket"**.
 
-![anh1](/images/5-workshop/5.6-S3/image1.png)
+![anh1](/images/5-Workshop/5.6-S3/image1.png)
 
 3. Điền thông tin cấu hình chung:
    
-![anh2](/images/5-workshop/5.6-S3/image2.png)
+![anh2](/images/5-Workshop/5.6-S3/image2.png)
 
 | Cấu Hình | Giá Trị | Giải Thích |
 | :--- | :--- | :--- |
@@ -33,7 +33,7 @@ Bucket này đóng vai trò là **Origin** cho CloudFront, chứa code Frontend 
 
 ### 1.2. Cấu hình Object Ownership & Public Access
 
-![anh3](/images/5-workshop/5.6-S3/image3.png)
+![anh3](/images/5-Workshop/5.6-S3/image3.png)
 
 1. **Object Ownership:** Chọn **ACLs disabled (recommended)**.
    * **Mục đích:** Quyền truy cập được quản lý tập trung bằng **Bucket Policy**, giúp quản lý đơn giản hơn.
@@ -45,7 +45,7 @@ Bucket này đóng vai trò là **Origin** cho CloudFront, chứa code Frontend 
 
 ### 1.3. Cấu hình Versioning và Encryption
 
-![anh4](/images/5-workshop/5.6-S3/image4.png)
+![anh4](/images/5-Workshop/5.6-S3/image4.png)
 
 | Cấu Hình | Giá Trị | Giải Thích |
 | :--- | :--- | :--- |
@@ -61,8 +61,8 @@ Bucket này đóng vai trò là **Origin** cho CloudFront, chứa code Frontend 
 Bucket này dùng để lưu trữ các tệp do người dùng tải lên (ảnh, media...). **Ưu tiên bảo mật tối đa.**
 Làm tương tự S3 ở trên.
 
-![anh5](/images/5-workshop/5.6-S3/image5.png)
-![anh6](/images/5-workshop/5.6-S3/image6.png)
+![anh5](/images/5-Workshop/5.6-S3/image5.png)
+![anh6](/images/5-Workshop/5.6-S3/image6.png)
 
 ### 2.1. Truy cập và Khởi tạo Bucket
 1. Lặp lại các bước tạo Bucket (Mục 1.1).
@@ -87,4 +87,3 @@ Làm tương tự S3 ở trên.
 | **Bucket Key** | Chọn: **Enable** | Giảm chi phí yêu cầu mã hóa. |
 
 ---
-

@@ -17,14 +17,14 @@ Before finalizing CloudFront setup, you must ensure the S3 Bucket **`taskhub-fro
 ### 1.1. Static Website Hosting Status
 * **Check:** The **Properties** tab of the S3 Bucket.
 * **Status:** **S3 static website hosting** must be in the **Disabled** state.
-![anh1](/images/5-workshop/5.7-CloudFront/image1.png)
+![anh1](/images/5-Workshop/5.7-CloudFront/image1.png)
 * **Explanation:** Since CloudFront acts as the CDN, **Static Website Hosting is not required** on S3. S3 merely serves as the content repository (Origin).
 
 ### 1.2. Block Public Access & Bucket Policy
 * **Check:** The **Permissions** tab of the S3 Bucket.
 * **Block public access (bucket settings):** Must be in the **On** state (`Block all public access`).
-![anh2](/images/5-workshop/5.7-CloudFront/image2.png)
-* **Bucket policy (Final Confirmation):** Must contain the **OAC Policy** that is **automatically updated by CloudFront**.
+![anh2](/images/5-Workshop/5.7-CloudFront/image2.png)
+* **Bucket policy (Final Confirmation):** Must contain the **OAC Policy** that is  **automatically updated by CloudFront** .
 
 ---
 
@@ -32,9 +32,9 @@ Before finalizing CloudFront setup, you must ensure the S3 Bucket **`taskhub-fro
 
 ### 2.1. Step 1 & 2: Get started
 
-![anh4](/images/5-workshop/5.7-CloudFront/image4.png)
-![anh5](/images/5-workshop/5.7-CloudFront/image5.png)
-![anh6](/images/5-workshop/5.7-CloudFront/image6.png)
+![anh4](/images/5-Workshop/5.7-CloudFront/image4.png)
+![anh5](/images/5-Workshop/5.7-CloudFront/image5.png)
+![anh6](/images/5-Workshop/5.7-CloudFront/image6.png)
 
 | Configuration | Value | Explanation |
 | :--- | :--- | :--- |
@@ -47,14 +47,14 @@ Before finalizing CloudFront setup, you must ensure the S3 Bucket **`taskhub-fro
 
 #### 1. Specify Origin
 * **Origin type:** Select **Amazon S3**.
-![anh7](/images/5-workshop/5.7-CloudFront/image7.png)
+![anh7](/images/5-Workshop/5.7-CloudFront/image7.png)
 * **S3 origin:** Select the S3 Bucket **`taskhub-frontend-prod`**.
-![anh8](/images/5-workshop/5.7-CloudFront/image8.png)
+![anh8](/images/5-Workshop/5.7-CloudFront/image8.png)
 
 #### 2. Configure OAC (Automatic Security)
-1.  Tick **"Allow private S3 bucket access to CloudFront - Recommended"**.
-2.  Select **Use recommended origin settings**.
-    * **Explanation:** Upon completing the Distribution creation, CloudFront will **automatically update the S3 Bucket Policy** to grant access via OAC.
+1.  Tick **"Allow private S3 bucket access to CloudFront - Recommended"**.
+2.  Select **Use recommended origin settings**.
+    * **Explanation:** Upon completing the Distribution creation, CloudFront will **automatically update the S3 Bucket Policy** to grant access via OAC.
 
 #### 3. Cache Configuration
 * **Cache settings:** Select **Use recommended cache settings tailored to serving S3 content**.
@@ -62,7 +62,7 @@ Before finalizing CloudFront setup, you must ensure the S3 Bucket **`taskhub-fro
 
 ### 2.3. Step 4 & 5: Security & TLS
 
-![anh9](/images/5-workshop/5.7-CloudFront/image9.png)
+![anh9](/images/5-Workshop/5.7-CloudFront/image9.png)
 
 | Configuration | Applied Value | Explanation |
 | :--- | :--- | :--- |
@@ -80,7 +80,7 @@ Before finalizing CloudFront setup, you must ensure the S3 Bucket **`taskhub-fro
 * **Price Class:** Select **Use all edge locations (best performance)**.
 * Click the **"Create distribution"** button to deploy.
 
-![anh10](/images/5-workshop/5.7-CloudFront/image10.png)
+![anh10](/images/5-Workshop/5.7-CloudFront/image10.png)
 
 ---
 
@@ -93,4 +93,4 @@ After the Distribution status changes to **`Deploying`**, perform this crucial c
 3.  Find the **"Bucket policy"** section.
 4.  **Confirm:** The Policy must be automatically updated and contain the JSON statement authorizing the CloudFront service. This confirms that OAC has blocked direct access and only allows CloudFront to read the files.
 
-![anh3](/images/5-workshop/5.7-CloudFront/image3.png)
+![anh3](/images/5-Workshop/5.7-CloudFront/image3.png)
