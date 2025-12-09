@@ -6,12 +6,9 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
+Trong suốt thời gian thực tập tại **[Amazon Web Services Vietnam Co., Ltd.]** từ **[06/09/2025]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
+Tôi đã tham gia **[thảo luận nhóm để xây dựng kiến trúc hạ tầng của dự án, phân tích các dịch vụ và tối ưu chi phí, triển khai các thành phần hạ tầng trên AWS, cấu hình dự án và lập trình tích hợp với các dịch vụ AWS]**, qua đó cải thiện kỹ năng **[thông qua quá trình học tập và trao đổi trong nhóm giúp nâng cao kỹ năng giao tiếp và kiến thức chuyên môn; việc tiếp xúc trực tiếp với các dịch vụ AWS trong dự án thực tế giúp hiểu sâu hơn về cách vận hành; đồng thời quá trình thực hiện dự án cũng giúp cải thiện khả năng lập trình và kỹ năng viết báo cáo]**.  
 
 Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
 

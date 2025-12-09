@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 7"
 date: "2025-11-14"
-weight: 1
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu các dịch vụ về hạ tầng trên AWS. 
+* Hiểu cách mà các dịch vụ kết hợp với nhau một cách tối ưu 
+* Tìm kiếm chủ đề cho dự án và bước đầu xây dựng kiến trúc cho dự án
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Tìm hiểu về dịch vụ KMS, mã hóa dữ liệu và cách theo dỗi log | 20/10/2025   | 20/10/2025      |
+| 3   | - Tìm hiểu về cách sử dụng các dịch vụ chung với nhau để xây dựng hạ tầng dự án nhóm | 21/10/2025   | 21/10/2025      |  |
+| 4   | - Thảo luận nhóm, nghiên cứu để chọn chủ đề cho dự án | 22/10/2025   | 22/10/2025      |  |
+| 5   | - Chọn chủ đề dự án và bắt đầu tìm hiểu về các dịch vụ cần thiết để xây dựng hạ tầng | 23/10/2025   | 23/10/2025      |  |
+| 6   | - Xây dựng hạ tầng dự án và hỏi các anh chị mentor góp ý về hạ tầng | 24/10/2025   | 24/10/2025      | |
 
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+* Hiểu rõ các dịch vụ hạ tầng AWS như KMS, IAM và cách chúng phối hợp để tạo môi trường an toàn và tối ưu.
+* Nắm được cách kết hợp nhiều dịch vụ AWS để xây dựng kiến trúc nền tảng cho một dự án thực tế.
+* Cùng nhóm phân tích và lựa chọn chủ đề dự án phù hợp, xác định các dịch vụ AWS cần sử dụng.
 

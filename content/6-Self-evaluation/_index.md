@@ -6,12 +6,8 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+During my internship at [Amazon Web Services Vietnam Co., Ltd.] from [06/09/2025] to [end date], I had the opportunity to learn, practice, and apply the knowledge I acquired at university in a real working environment.
+I participated in [**group discussions to design the project’s infrastructure architecture, analyzing AWS services and optimizing costs, deploying infrastructure components on AWS, configuring project environments, and programming to integrate various AWS services**], through which I improved my skills [**by learning and collaborating with my team, which strengthened my communication skills and technical knowledge; working directly with AWS services in a real project helped me gain deeper insights into their operations; and the project development process also enhanced my programming abilities and reporting skills**].
 
 In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
 

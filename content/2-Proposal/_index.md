@@ -1,115 +1,268 @@
 ---
 title: "Proposal"
-date: "2025-11-14"
+date: "2025-12-09"
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+# TaskHub – A DevSecOps-Based Task and Progress Management Platform on AWS
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+### **1. Executive Summary**
 
-### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+TaskHub is a task and progress management platform designed to help small and medium-sized businesses as well as working teams manage workloads, deadlines, and progress in a visual and secure manner.
 
-### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+The system is developed following the **DevSecOps** model and is fully built on **AWS Serverless**, ensuring scalability, security, and cost optimization.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+The development and deployment process adopts **AWS CodePipeline** and **CodeBuild** to automate CI/CD and security testing.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+---
 
-### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+### **2. Problem Statement**
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+**Problems:**
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+- Small businesses and project teams often face difficulties in managing workload, tracking progress, and distributing tasks among members.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- Popular tools such as Jira or Asana usually come with high costs and lack seamless integration with DevSecOps processes or AWS environments.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+**Solutions:**
 
-### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+- TaskHub leverages a Serverless AWS architecture to build a lightweight, secure, and cost-efficient platform.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+- The platform is developed using **AWS Lambda**, **API Gateway**, **DynamoDB**, **Cognito**, and **S3/CloudFront**, while **AWS CodePipeline** is integrated for CI/CD and dynamic security testing.
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+**Benefits and Return on Investment (ROI)**
 
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+TaskHub delivers practical benefits for development teams and small-to-medium enterprises. The system functions as a centralized platform for task management, progress tracking, and role-based member management. The adoption of AWS Serverless architecture significantly reduces operational costs, optimizes resource utilization, and enhances scalability as usage demand grows. Furthermore, the platform serves as a hands-on DevSecOps practice environment, enabling research and development teams to expand future projects. According to estimates from the AWS Pricing Calculator, the system operation cost is approximately **0.66 USD per month**, equivalent to **7.92 USD per year**. Since the entire infrastructure is based on shared AWS services, no physical hardware investment is required. The expected break-even time is within **6–12 months**, thanks to substantial reductions in manual management effort and optimized internal workflows.
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+---
 
-Total: $0.7/month, $8.40/12 months
+### **3. Solution Architecture**
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+TaskHub is built upon an AWS Serverless architecture, ensuring operational scalability, high performance, and cost efficiency. The platform focuses on real-time task, team, and project progress management while maintaining an automated DevSecOps deployment pipeline.
 
-### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+The overall architecture includes key components such as **Amazon API Gateway**, which acts as the request entry point and traffic distributor, **AWS Lambda** for backend business logic processing, and **Amazon DynamoDB** for storing task data, user information, and access control.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+The web frontend is hosted on **Amazon S3** and globally distributed via **Amazon CloudFront**, while **AWS Cognito** handles authentication and authorization.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+The CI/CD process is fully automated using **AWS CodePipeline** combined with **AWS CodeBuild**, enabling continuous deployment and security validation without server management.
 
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+The entire architecture is protected by **AWS WAF** and **AWS KMS** to enhance security and enforce DevSecOps compliance. **AWS X-Ray** is used for performance tracing and latency analysis. The complete architecture is illustrated in the diagram below:
+
+![architecture](/images/2-Proposal/image1.png)
+
+---
+
+### **AWS Services Utilized**
+
+1. **Amazon Route 53:** Highly reliable DNS service for traffic routing.
+
+2. **AWS WAF (Web Application Firewall):** Advanced protection layer against common web attacks.
+
+3. **Amazon CloudFront:** Global content delivery for the user interface and static assets.
+
+4. **Amazon S3 (Simple Storage Service):** Static hosting of all frontend build files (Next.js).
+
+5. **Amazon Cognito:** User authentication and authorization management.
+
+6. **Amazon API Gateway:** Middleware layer for authentication and API routing to Lambda.
+
+7. **AWS Lambda:** Core business logic processing and CloudWatch logging integration.
+
+8. **Amazon DynamoDB:** High-performance NoSQL database encrypted using **AWS KMS**.
+
+9. **AWS SNS (Simple Notification Service):** Asynchronous notification service.
+
+10. **AWS Secrets Manager:** Secure storage, management, and rotation of sensitive credentials.
+
+11. **AWS CodePipeline, CodeBuild & CodeGuru**
+
+12. **CodePipeline/CodeBuild:** CI/CD automation; CodeBuild performs static security testing (SAST).
+
+13. **AWS CodeGuru:** Automated source code analysis tool integrated into CI/CD to **provide intelligent recommendations for performance optimization and code quality improvement**, especially for Lambda environments.
+
+14. **AWS CloudFormation:** **Infrastructure as Code (IaC)** service for automated resource provisioning.
+
+15. **AWS CloudWatch Logs & AWS X-Ray:** **CloudWatch Logs** collects logs, **CloudWatch** sets alarms, and **X-Ray** provides distributed tracing and performance insights.
+
+---
+
+### **Component Design**
+
+#### 1. **Frontend Layer:**
+
+- **User Interface:** Built with **Next.js** as a Static Site.
+
+- **Storage & Distribution:** Static files are securely hosted on **Amazon S3** and globally delivered via **Amazon CloudFront**, protected by **AWS WAF** at the Edge layer.
+
+#### 2. **Backend Layer:**
+
+- **API Gateway:** **Amazon API Gateway** receives all requests and verifies authentication using **Cognito Authorizer**.
+
+- **Processing:** **AWS Lambda Functions** handle business logic (task CRUD, team management, role authorization).
+
+- **Secrets Management:** Each Lambda function securely accesses sensitive credentials via **AWS Secrets Manager**, preventing secrets from being hardcoded.
+
+#### 3. **Data Layer:**
+
+- **Database:** **Amazon DynamoDB** stores task data, progress, and user configurations in **On-Demand** mode for auto-scaling and cost efficiency.
+
+- **Data Security:** All at-rest data in DynamoDB is encrypted using **AWS KMS (Key Management Service)**.
+
+#### 4. **Security & Authentication:**
+
+- **Authentication:** **Amazon Cognito** manages login, sessions, and role-based access control (RBAC), supporting **Multi-Factor Authentication (MFA)** and **Single Sign-On (SSO)**.
+
+- **Edge Protection:** **AWS WAF** is placed in front of CloudFront to mitigate Layer 7 DDoS attacks and OWASP Top 10 threats.
+
+#### 5. **Deployment & Monitoring:**
+
+- **DevSecOps CI/CD:** Source code is hosted on **GitLab** and automated by **AWS CodePipeline/CodeBuild**, including **CodeGuru** analysis before infrastructure deployment via **CloudFormation**.
+
+- **Monitoring & Debugging:** **CloudWatch Logs** collects service logs; **CloudWatch** creates automated alarms; **AWS X-Ray** provides tracing and latency optimization.
+
+---
+
+### **4. Technical Implementation**
+
+The TaskHub project is divided into two main areas—AWS Serverless infrastructure development and task management platform development—each consisting of the following phases:
+
+---
+
+### **Development Phases**
+
+#### **Phase 1: Design & Modeling (Month 1)**
+
+- **Key Actions:** Research on Serverless/DevSecOps, selection of core services (Lambda, DynamoDB, API Gateway), detailed architecture design, and NoSQL data modeling.
+
+- **Deliverables:** Architecture Diagram and Data Model Documentation.
+
+#### **Phase 2: Infrastructure as Code Initialization (Month 2)**
+
+- **Key Actions:** Detailed cost estimation; AWS CDK development for foundational services (S3, CloudFront, Cognito).
+
+- **Deliverables:** Base AWS CDK source code and Cost Estimation Report.
+
+#### **Phase 3: DevSecOps Automation Setup (Months 2–3)**
+
+- **Key Actions:** Full CI/CD pipeline setup (CodePipeline/CodeBuild), integration of AWS CodeGuru and SAST for automated code quality and security scanning.
+
+- **Deliverables:** Operational CodePipeline and automated security scanning workflow.
+
+#### **Phase 4: Development & Deployment (Months 3–4)**
+
+- **Key Actions:** Feature development (Lambda with TypeScript, frontend with Next.js), integration testing, and production deployment via Pipeline.
+
+- **Deliverables:** TaskHub Beta Version (Full CRUD) and Testing Report.
+
+---
+
+### **Technical Requirements**
+
+- **Architecture & Tools:** Entire system is managed using AWS CDK for infrastructure consistency.
+
+- **Technology Stack:** Backend uses TypeScript/Node.js; frontend uses Next.js (React).
+
+- **Source Code Management:** GitLab with automated deployment via AWS CodePipeline.
+
+- **Monitoring:** CloudWatch, X-Ray, and CloudWatch Logs for deep performance monitoring and debugging.
+
+- **Non-functional Requirements:** Deployed in Singapore region (**ap-southeast-1**) for optimal Vietnam latency, scalable to **50 users**, and encrypted using **AWS KMS**.
+
+---
+
+### **5. Timeline & Key Milestones**
+
+#### **Project Timeline**
+
+- **Pre-Internship (Month 0):** Planning, DevSecOps research, and AWS Serverless service study.
+
+- **Month 1:** Development environment setup, AWS infrastructure initiation, and CI/CD pipeline initialization.
+
+- **Month 2:** Architecture design, core feature implementation, and automated security testing.
+
+- **Month 3:** Frontend-backend integration, beta development, and platform release.
+
+- **Post-Release:** Maintenance, performance evaluation, and feature expansion.
+
+---
+
+### **6. Budget Estimation**
+
+#### **Hourly Rates**
+
+| Resource | Responsibility | Rate (USD)/Hour |
+|----------|----------------|------------------|
+| Solution Architect [1] | System & API design, Database design, Technical leadership | 6 |
+| Engineers [3] | Backend, Frontend, Security implementation | 4 |
+| Others (DevOps) [1] | CI/CD, Cloud deployment, Monitoring, Security | 4 |
+
+#### **Project Phases Cost Breakdown**
+
+| Project Phase | Architect | Engineers | Others | Total Hours |
+|---------------|-----------|-----------|--------|--------------|
+| System & Architecture Design | 20 | 10 | 0 | 30 |
+| Backend Development | 10 | 80 | 0 | 90 |
+| Frontend Development | 5 | 60 | 0 | 65 |
+| Security & CI/CD Setup | 5 | 30 | 10 | 45 |
+| Testing & Deployment | 5 | 30 | 0 | 35 |
+| **Total Hours** | **45** | **210** | **10** | **265** |
+| **Total Cost (USD)** | **270** | **840** | **40** | **800** |
+
+#### **Cost Contribution Distribution**
+
+| Party | Contribution (USD) | Percentage |
+|-------|---------------------|------------|
+| Customer | 0 | 0% |
+| Partner | 0 | 0% |
+| AWS | 800 | 100% |
+
+---
+
+### **7. Risk Assessment**
+
+#### **Risk Matrix**
+
+- AWS service disruption: Medium impact – Medium probability  
+- CI/CD misconfiguration: High impact – Low probability  
+- AWS budget overrun: Medium impact – Low probability  
+- Security vulnerabilities: High impact – Medium probability  
+- Performance degradation under load: Medium impact – Medium probability  
+
+#### **Mitigation Strategies**
+
+- Multi-region monitoring using CloudWatch and X-Ray  
+
+- Code review and validation before deployment via **CodePipeline**
+
+- Cost monitoring using AWS Budgets  
+
+- Automated security scanning via **CodeBuild** (replacing GitHub Actions)
+
+#### **Contingency Plan**
+
+- Maintain staging environments for rapid recovery
+
+- Use CloudFormation and AWS Backup for configuration and data backup
+
+---
+
+### **8. Expected Outcomes**
+
+#### **Technical Improvements**
+
+- **Full Automation:** A complete transition to automated **DevSecOps**, achieving deployment times under **6 minutes**.
+
+- **Guaranteed Performance:** API response time under **150ms** and system availability at **99.9% uptime**.
+
+- **Integrated Security:** Automated detection and remediation of critical security issues during the build phase.
+
+- **Scalability Ready:** The platform is capable of scaling to support high traffic and user growth without architectural changes.
+
+#### **Long-Term Value**
+
+- **Reusable Technical Assets:** A complete set of **AWS CDK/CloudFormation** templates optimized for cost and scalability, reusable for future projects.
+
+- **Solid Platform Foundation:** An industry-standard DevSecOps-based task management environment ready for long-term feature expansion.
+

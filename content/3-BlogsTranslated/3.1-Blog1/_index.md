@@ -1,126 +1,115 @@
 ---
 title: "Blog 1"
-date: "2025-11-14"
+date: "2025-07-09"
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# How Patronus AI Helps Businesses Enhance Reliability When Using Generative AI
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+by Aditya Shahani and Bonnie McClure | on MAY 02, 2024 | in [Customer Solutions](https://aws.amazon.com/vi/blogs/startups/category/customer-solutions/), [Generative AI](https://aws.amazon.com/vi/blogs/startups/category/generative-ai/), [Startup](https://aws.amazon.com/vi/blogs/startups/category/startup/)
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+<div style="text-align: left; margin-top: 10px;">
+    <img src="/images/3-BlogsTranslated/Blog-1/patronuslogo.png"
+         alt="Patronus AI Logo"
+         width="260"
+         style="display:block; margin-left:0;">
+</div>
 
----
+In recent years, especially since the launch of **ChatGPT** in 2022, the transformative potential of **Generative AI** has become undeniable for organizations of all sizes and across many industries. The next wave of adoption has begun, as businesses are rushing to deploy Generative AI tools to increase efficiency and improve customer experiences. According to the [2023 McKinsey Report](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier), Generative AI could contribute an additional $2.6 to $4.4 trillion to the global economy annually, increasing AI’s overall economic impact by roughly 15–40%. Meanwhile, the latest global CEO survey by **IBM** shows that 50% of respondents have already begun integrating Generative AI into their products and services.
 
-## Architecture Guidance
+<div style="float: right; margin: 0 0 1.5em 1.5em; text-align: center; width: 220px;">
+    <img src="/images/3-BlogsTranslated/Blog-1/Anand_300x361.png" alt="Anand Kannappan Co-founder & CEO | Patronus AI" style="width: 361px; height: 300px; object-fit: cover; display: block; margin: 0 auto;">
+</div>
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+As generative AI goes mainstream, however, customers and businesses are increasingly expressing concern about its trustworthiness and reliability. And it can be unclear why given inputs lead to certain outputs, making it difficult for companies to evaluate the results of their generative AI. [Patronus AI](http://patronus.ai/), a company founded by machine learning (ML) experts Anand Kannappan and Rebecca Qian, has set out to tackle this problem. With its AI-driven automated evaluation and security platform, Patronus helps its customers use large language models (LLMs) confidently and responsibly while minimizing the risk of errors. The startup’s aim is to make AI models more trustworthy and more usable. “That’s become the big question in the past year. Every enterprise wants to use language models, but they’re concerned about the risks and even just the reliability of how they work, especially for their very specific use cases,” explains Anand. “Our mission is to boost enterprise confidence in generative AI.”
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Reaping the benefits and managing the risks of generative AI
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Generative AI is a type of AI that uses ML to generate new data similar to the data it was trained on. By learning the patterns and structure of the input datasets, generative AI produces original content—images, text, and even lines of code. Generative AI applications are powered by ML models that have been pre-trained on vast amounts of data, most notably LLMs trained on trillions of words across a range of natural language tasks.
 
----
+The potential business benefits are sky-high. Firms have shown interest in using LLMs to leverage their own internal data through retrieval, to produce memos and presentations, to improve automated chat assistance, and to auto-complete code generation in software development. Anand also points to the whole range of other use cases that have not yet been realized. “There’s a lot of different industries that generative AI hasn’t disrupted yet. We’re really just at the early innings of everything that we’re seeing so far.”
 
-## Technology Choices and Communication Scope
+<div style="float: right; margin: 0 0 1.5em 1.5em; text-align: center; width: 220px;">
+    <img src="/images/3-BlogsTranslated/Blog-1/Rebecca_300x361.png" alt="Anand Kannappan Co-founder & CEO | Patronus AI" style="width: 400px; height: 300px; object-fit: cover;  display: block; margin: 0 auto;">
+</div>
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+As organizations consider expanding their use of generative AI, the issue of trustworthiness becomes more pressing. Users want to ensure their outputs comply with company regulations and policies while avoiding unsafe or illegal outcomes. “For larger companies and enterprises, especially in regulated industries,” explains Anand, “there are a lot of mission-critical scenarios where they want to use generative AI, but they’re concerned that if a mistake happens, it puts their reputation at risk, or even their own customers at risk.”
+
+Patronus helps customers manage these risks and boost confidence in generative AI by improving the ability to measure, analyze, and experiment with the performance of the models in question. “It’s really about making sure that, regardless of the way that your system was developed, the overall testing and evaluation of everything is very robust and standardized,” says Anand. “And that’s really what’s missing right now: everyone wants to use language models, but there’s no really established or standardized framework of how to properly test them in a much more scientific way.”
 
 ---
 
-## The Pub/Sub Hub
+## Enhancing trustworthiness and performance
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+The automated Patronus platform allows customers to evaluate and compare the performance of different LLMs in real-world scenarios, thereby reducing the risk of undesired outputs. Patronus uses novel ML techniques to help customers automatically generate adversarial test suites and score and benchmark language model performance based on Patronus’s proprietary taxonomy of criteria. For example, the FinanceBench dataset is the industry’s first benchmark for LLM performance on financial questions.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+“Everything we do at Patronus is very focused around helping companies be able to catch language model mistakes in a much more scalable and automated way,” says Anand. Many large companies are currently spending vast amounts on internal quality assurance teams and external consultants, who manually create test cases and grade their LLM outputs in spreadsheets, but Patronus’s AI-driven approach saves the need for such a slow and expensive process.
+
+“Natural Language Processing (NLP) is quite empirical, so there is a lot of experimentation work that we are doing to ultimately figure out which evaluation techniques work the best,” explains Anand. “How can we enable those kinds of things in our product so that people can leverage the value … from the techniques that we figured out work the best, very easily and quickly? And how can they get performance improvements, not only for their own system, but even for the evaluation against that system that they’ve been able to do now because of Patronus?”
+
+<div style="text-align: left; margin-top: 10px;">
+    <img src="/images/3-BlogsTranslated/Blog-1/Enhancing1.png"
+         width="1024"
+         style="display:block; margin-left:0;">
+</div>
+
+What results is a virtuous cycle: the more a company uses the product and gives feedback via the thumbs or thumbs down feature, the better its evaluations become, and the better the company’s own systems become as a result.
+
+<div style="text-align: left; margin-top: 10px;">
+    <img src="/images/3-BlogsTranslated/Blog-1/Enhancing2.png"
+         width="1024"
+         style="display:block; margin-left:0;">
+</div>
+
+## Boosting confidence through improved results and understandability
+
+To unlock the potential of generative AI, improving its reliability and trustworthiness is vital. Potential adopters across a variety of industries and use cases are regularly held back—not just by the fact that mistakes are sometimes made by AI applications—but also by the difficulty of understanding how or why a problem has occurred, and how to avoid that happening in the future.
+
+“What everyone is really asking for is a better way to have a lot more confidence in something when you roll it out to production,” says Anand. “And when you put it in front of your own employees, and even end customers, then that’s hundreds, thousands, or tens of thousands of people, so you want to make sure that those kinds of challenges are limited as much as possible. And, for the ones that do happen, you want to know when they happen and why.”
+
+One of Patronus’ key goals is enhancing the understandability, or explainability, of generative AI models. This refers to the ability to pinpoint why certain outputs from LLMs are the way they are, and how customers can gain more control over those outputs’ reliability.
+
+Patronus incorporates features aimed at explainability, primarily by giving customers direct insight into why a particular test case passed or failed. Per Anand: “That’s something that we do with natural language explanations, and our customers have told us that they liked that, because it gives them some quick insight into what might have been the reason why things have failed—and maybe even suggestions for improvements on how they can iterate on the prompt or generation parameter values, or even for fine-tuning … Our explainability is very focused around the actual evaluation itself.”
+
+## Looking toward the future of generative AI with AWS
+
+To build their cloud-based application, Patronus has worked with AWS since the beginning. Patronus uses a range of different cloud-based servicesL: [Amazon Simple Queue Service (Amazon SQS)](https://aws.amazon.com/sqs/) for queue infrastructure and [Amazon Elastic Compute Cloud (Amazon EC2)](https://aws.amazon.com/ec2/)  for Kubernetes environments, they take advantage of the customization and flexibility available from [Amazon Elastic Kubernetes Service (Amazon EKS)](https://aws.amazon.com/eks/).
+
+Having worked with AWS for many years before he helped found Patronus, Anand and his team were able to leverage their familiarity and experience with AWS to quickly develop their product and infrastructure. Patronus has also worked closely with AWS’s startup-focused solutions teams, which have been “instrumental” in setting up connections and conversations. “The customer-focused aspect [at AWS] is always great, and we never take that for granted,” says Anand.
+
+Patronus is now looking optimistically forward, having been inundated with interest and demand in the wake of its recent launch from stealth mode with $3 million in seed funding led by [Lightspeed Venture Partners](https://lsvp.com/). The team has also [recently announced the first benchmark for LLM performance on financial questions](https://www.patronus.ai/announcements/patronus-ai-launches-financebench-the-industrys-first-benchmark-for-llm-performance-on-financial-questions), something co-designed with 15 financial industry domain experts.
+
+“We are really excited for what we’re going to be able to do in the future,” says Anand. “And we’re going to continue to be focused on AI evaluation and testing, so being able to help companies identify gaps in language models…and understand how they can quantify performance, and ultimately get better products that they can build a lot more confidence around in the future.”
+
+<div style="text-align: left; margin-top: 10px;">
+    <img src="/images/3-BlogsTranslated/Blog-1/anand-and-rebecca.png"
+         width="1024"
+         style="display:block; margin-left:0;">
+</div>
 
 ---
 
-## Core Microservice
+## About the Authors
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+<div style="display: flex; align-items: center; border: 1px solid #e1e4e8; padding: 20px; margin-bottom: 20px; background-color: #fff; text-align: left;">
+    <img src="/images/3-BlogsTranslated/Blog-1/Aditya-Shahani.jpg" alt="Aditya Shahani" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin: 0 20px 0 0 !important; flex-shrink: 0; display: block;">
+    <div style="flex: 1;"> <h3 style="margin: 0 0 5px 0; font-size: 18px; color: #232f3e; font-weight: bold; font-family: sans-serif;">Aditya Shahani</h3>
+        <p style="margin: 0; color: #555; line-height: 1.5; font-size: 14px; font-family: sans-serif;">
+            Aditya Shahani is a Startup Solutions Architect focused on accelerating early stage startups throughout their journey building on AWS. He is passionate about leveraging the latest technologies to streamline business problems at scale.
+        </p>
+    </div>
+</div>
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+<div style="display: flex; align-items: center; border: 1px solid #e1e4e8; padding: 20px; margin-bottom: 20px; background-color: #fff; text-align: left;">
+    <img src="/images/3-BlogsTranslated/Blog-1/Bonnie-headshot-SQ.jpg" alt="Bonnie McClure" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin: 0 20px 0 0 !important; flex-shrink: 0; display: block;">
+    <div style="flex: 1;">
+        <h3 style="margin: 0 0 5px 0; font-size: 18px; color: #232f3e; font-weight: bold; font-family: sans-serif;">Bonnie McClure</h3>
+        <p style="margin: 0; color: #555; line-height: 1.5; font-size: 14px; font-family: sans-serif;">
+            Bonnie is an editor specializing in creating accessible, engaging content for all audiences and platforms. She is dedicated to delivering comprehensive editorial guidance to provide a seamless user experience.
+        </p>
+    </div>
+</div>

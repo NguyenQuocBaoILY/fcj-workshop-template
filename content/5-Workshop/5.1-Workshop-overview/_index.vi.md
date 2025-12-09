@@ -1,19 +1,47 @@
 ---
-title : "Giới thiệu"
-date :  "2025-11-14" 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Giới thiệu"
+date: "2025-09-09"
+weight: 1
+chapter: false
+pre: "<b> 5.1. </b>"
 ---
 
-#### Giới thiệu về VPC Endpoint
+## Xây dựng nền tảng TaskHub theo mô hình DevSecOps trên AWS 
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+#### Giới thiệu Workshop
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+Trong workshop này, bạn sẽ thực hành xây dựng toàn bộ nền tảng **TaskHub** theo mô hình **AWS Serverless + DevSecOps**, dựa trên kiến trúc thực tế được các doanh nghiệp áp dụng để triển khai hệ thống linh hoạt, bảo mật và tối ưu chi phí.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+Workshop được phân chia theo từng nhóm dịch vụ AWS, giúp bạn:
+
++ Hiểu vai trò từng dịch vụ trong kiến trúc serverless hiện đại.  
++ Tự tay triển khai API Gateway, Lambda, DynamoDB, Cognito, S3/CloudFront.  
++ Tiếp cận DevSecOps chuyên nghiệp thông qua CodePipeline, CodeBuild và CodeGuru.  
++ Triển khai bảo mật ở cả Backend (KMS, Secrets Manager) và Edge (WAF, Shield).  
++ Kết nối hoàn chỉnh frontend Next.js với backend serverless AWS.
+
+---
+
+#### Tổng quan kiến trúc được triển khai
+
+Trong workshop này, bạn sẽ thiết lập toàn bộ các thành phần chính của nền tảng TaskHub:
+
+![Diagram](/images/5-Workshop/5.1-Workshop-overview/diagram.png)
+
+
++ **Amazon S3** – Lưu trữ build tĩnh của ứng dụng Next.js.  
++ **Amazon CloudFront** – Phân phối giao diện toàn cầu với độ trễ thấp.  
++ **AWS WAF & AWS Shield** – Bảo vệ ứng dụng khỏi tấn công DDoS và OWASP Top 10.
++ **Amazon Cognito** – Xác thực, quản lý người dùng, phân quyền Admin/Member.
++ **Amazon API Gateway** – Cổng tiếp nhận request từ frontend.  
++ **AWS Lambda (Node.js/TypeScript)** – Xử lý toàn bộ logic nghiệp vụ.
++ **Amazon DynamoDB** – Lưu dữ liệu nhiệm vụ, người dùng, tiến độ.  
++ **AWS KMS** – Mã hóa dữ liệu tại DynamoDB.  
++ **AWS Secrets Manager** – Lưu trữ bí mật và khóa API.
++ **AWS CodePipeline** – Tự động hóa toàn bộ CI/CD.  
++ **AWS CodeBuild** – Build frontend/backend và chạy Security Scan.  
++ **AWS CodeGuru Reviewer** – Phân tích chất lượng mã và đề xuất tối ưu.  
++ **AWS CloudFormation** – Triển khai hạ tầng theo IaC.
++ **Amazon CloudWatch Logs** – Ghi nhận log từ Lambda và API Gateway.    
++ **AWS X-Ray** – Phân tích độ trễ và tracing toàn hệ thống.
++ **Amazon SNS** – Gửi thông báo sự kiện hoặc cảnh báo.
