@@ -48,7 +48,7 @@ The web frontend is hosted on **Amazon S3** and globally distributed via **Amazo
 
 The CI/CD process is fully automated using **AWS CodePipeline** combined with **AWS CodeBuild**, enabling continuous deployment and security validation without server management.
 
-The entire architecture is protected by **AWS WAF** and **AWS KMS** to enhance security and enforce DevSecOps compliance. **AWS X-Ray** is used for performance tracing and latency analysis. The complete architecture is illustrated in the diagram below:
+The entire architecture is protected by **AWS WAF** and **AWS KMS** to enhance security and enforce DevSecOps compliance. **AWS X-Ray** is used for performance tracing and latency analysis. The complete architecture is illustrated in the diagram below:.
 
 ![architecture](/images/2-Proposal/image1.png)
 
