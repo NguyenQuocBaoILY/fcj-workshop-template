@@ -29,7 +29,7 @@ chapter: false
 &emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
 
 ![Your profile picture](/images/Avatar.jpg)
-![1]({{ "/images/Avatar.jpg" | relURL }})
+
 ### Report Content
 
 1.  [Worklog](1-Worklog/)
